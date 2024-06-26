@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:site_name" content="Flyki">
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="Flyki — это уникальная WEB 3.0 электронные сигареты с генерированием дохода в токенах." />
+    <meta property="og:image" content="img/preview.png">
+    <meta property="og:image:secure_url" content="img/preview.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    <meta property="og:image:type" content="image/png" data-meta-dynamic="true">
+    <meta property="og:image:width" content="1200" data-meta-dynamic="true">
+    <meta property="og:image:height" content="630" data-meta-dynamic="true">
+
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <title>Главная</title>
+</head>
+
+
+
+<style>
+    .wrapper a {
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+
+    .wrapper button {
+        margin-bottom: 25px;
+        width: 300px;
+        height: 45px;
+    }
+</style>
+
+<body class="m-page">
+
+    <div class="wrapper" style="padding: 50px;">
+        <a href="index.html" style="display: block; margin-bottom: 20px;">
+            Главная
+        </a>
+        <a href="404.html" style="display: block; margin-bottom: 20px;">
+            404
+        </a>
+        <a href="conf.html" style="display: block; margin-bottom: 20px;">
+            Политика конфиденциальности
+        </a>
+
+        <button data-cart="cartModal" style="border: 2px solid #fff; color: #fff;margin-bottom: 20px;">
+            Корзина
+        </button>
+        <button data-cart="cartModal2" style="border: 2px solid #fff; color: #fff;margin-bottom: 20px;">
+            Корзина 2
+        </button>
+        <button data-cart="cartModal3" style="border: 2px solid #fff; color: #fff;margin-bottom: 20px;">
+            Корзина 3
+        </button>
+        <button data-cart="cartModal4" style="border: 2px solid #fff; color: #fff;margin-bottom: 20px;">
+            Корзина 4
+        </button>
+        <button data-cart="cartModal5" style="border: 2px solid #fff; color: #fff;margin-bottom: 20px;">
+            Корзина 5
+        </button>
+
+
+        <button data-modal="successModal" style="border: 2px solid #fff; color: #fff;margin-bottom: 20px;">
+            Успешный заказ!
+        </button>
+        <button data-modal="errorModal" style="border: 2px solid #fff; color: #fff; margin-bottom: 20px;">
+            Заказ не оплачен
+        </button>
+        <button data-modal="processModal" style="border: 2px solid #fff; color: #fff; margin-bottom: 20px;">
+            В процессе
+        </button>
+        <button data-modal="processModal2" style="border: 2px solid #fff; color: #fff; margin-bottom: 20px;">
+            Подтвердите платеж
+        </button>
+    </div>
+
+
+
+
+
+
+
+    <div class="modal" id="successModal">
+        <div class="modal__bg modal-bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="close-btn _close-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.85355 6.14645C6.65829 5.95118 6.34171 5.95118 6.14645 6.14645C5.95118 6.34171 5.95118 6.65829 6.14645 6.85355L11.2929 12L6.14645 17.1464C5.95118 17.3417 5.95118 17.6583 6.14645 17.8536C6.34171 18.0488 6.65829 18.0488 6.85355 17.8536L12 12.7071L17.1464 17.8536C17.3417 18.0488 17.6583 18.0488 17.8536 17.8536C18.0488 17.6583 18.0488 17.3417 17.8536 17.1464L12.7071 12L17.8536 6.85355C18.0488 6.65829 18.0488 6.34171 17.8536 6.14645C17.6583 5.95118 17.3417 5.95118 17.1464 6.14645L12 11.2929L6.85355 6.14645Z" fill="#DEDEDE" />
+                </svg>
+            </button>
+            <img src="img/success.svg" alt="" class="modal__icon">
+            <div class="modal__text">
+                <div class="modal__title">
+                    Успешный заказ!
+                </div>
+                <div class="modal__desc text16">
+                    Успешный заказ! Ваш товар будет отправлен в ближайшее время
+                </div>
+            </div>
+            <button class="_close-modal modal__btn m-btn m-btn-white">
+                <span>Окей</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" id="errorModal">
+        <div class="modal__bg modal-bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="close-btn _close-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.85355 6.14645C6.65829 5.95118 6.34171 5.95118 6.14645 6.14645C5.95118 6.34171 5.95118 6.65829 6.14645 6.85355L11.2929 12L6.14645 17.1464C5.95118 17.3417 5.95118 17.6583 6.14645 17.8536C6.34171 18.0488 6.65829 18.0488 6.85355 17.8536L12 12.7071L17.1464 17.8536C17.3417 18.0488 17.6583 18.0488 17.8536 17.8536C18.0488 17.6583 18.0488 17.3417 17.8536 17.1464L12.7071 12L17.8536 6.85355C18.0488 6.65829 18.0488 6.34171 17.8536 6.14645C17.6583 5.95118 17.3417 5.95118 17.1464 6.14645L12 11.2929L6.85355 6.14645Z" fill="#DEDEDE" />
+                </svg>
+            </button>
+            <img src="img/error.svg" alt="" class="modal__icon">
+            <div class="modal__text">
+                <div class="modal__title">
+                    Заказ не оплачен
+                </div>
+                <div class="modal__desc text16">
+                    Попробуйте еще раз
+                </div>
+            </div>
+            <button class="_close-modal modal__btn m-btn m-btn-white">
+                <span>Заказ не оплачен</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal process-modal" id="processModal">
+        <div class="modal__bg modal-bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="close-btn _close-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.85355 6.14645C6.65829 5.95118 6.34171 5.95118 6.14645 6.14645C5.95118 6.34171 5.95118 6.65829 6.14645 6.85355L11.2929 12L6.14645 17.1464C5.95118 17.3417 5.95118 17.6583 6.14645 17.8536C6.34171 18.0488 6.65829 18.0488 6.85355 17.8536L12 12.7071L17.1464 17.8536C17.3417 18.0488 17.6583 18.0488 17.8536 17.8536C18.0488 17.6583 18.0488 17.3417 17.8536 17.1464L12.7071 12L17.8536 6.85355C18.0488 6.65829 18.0488 6.34171 17.8536 6.14645C17.6583 5.95118 17.3417 5.95118 17.1464 6.14645L12 11.2929L6.85355 6.14645Z" fill="#DEDEDE" />
+                </svg>
+            </button>
+            <div class="loader">
+                <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                </svg>
+            </div>
+            <div class="modal__text">
+                <div class="modal__title">
+                    В процессе
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal process-modal" id="processModal2">
+        <div class="modal__bg modal-bg _close-modal"></div>
+        <div class="modal__dialog">
+            <button class="close-btn _close-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.85355 6.14645C6.65829 5.95118 6.34171 5.95118 6.14645 6.14645C5.95118 6.34171 5.95118 6.65829 6.14645 6.85355L11.2929 12L6.14645 17.1464C5.95118 17.3417 5.95118 17.6583 6.14645 17.8536C6.34171 18.0488 6.65829 18.0488 6.85355 17.8536L12 12.7071L17.1464 17.8536C17.3417 18.0488 17.6583 18.0488 17.8536 17.8536C18.0488 17.6583 18.0488 17.3417 17.8536 17.1464L12.7071 12L17.8536 6.85355C18.0488 6.65829 18.0488 6.34171 17.8536 6.14645C17.6583 5.95118 17.3417 5.95118 17.1464 6.14645L12 11.2929L6.85355 6.14645Z" fill="#DEDEDE" />
+                </svg>
+            </button>
+            <div class="loader">
+                <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                    <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                </svg>
+            </div>
+            <div class="modal__text">
+                <div class="modal__title">
+                    Пожалуйста, подтвердите платеж в вашем кошельке
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-modal _step1" id="cartModal">
+        <div class="cart-modal__bg modal-bg _close-cart"></div>
+        <button class="cart-modal__close _close-cart">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4226 10.2441C11.0972 9.91864 10.5695 9.91864 10.2441 10.2441C9.91864 10.5695 9.91864 11.0972 10.2441 11.4226L18.8215 20L10.2441 28.5774C9.91864 28.9028 9.91864 29.4305 10.2441 29.7559C10.5695 30.0814 11.0972 30.0814 11.4226 29.7559L20 21.1785L28.5774 29.7559C28.9028 30.0814 29.4305 30.0814 29.7559 29.7559C30.0814 29.4305 30.0814 28.9028 29.7559 28.5774L21.1785 20L29.7559 11.4226C30.0814 11.0972 30.0814 10.5695 29.7559 10.2441C29.4305 9.91864 28.9028 9.91864 28.5774 10.2441L20 18.8215L11.4226 10.2441Z" fill="#DEDEDE" />
+            </svg>
+        </button>
+        <div class="cart-modal__dialog">
+            <div class="cart-header">
+                <div class="cart-header__product">
+                    <div class="cart-header__product-img">
+                        <img src="img/order-img.png" alt="">
+                    </div>
+                    <div class="cart-header__product-title">
+                        Flyki S1
+                    </div>
+                </div>
+                <div class='cartcalc'>
+                    <button class='ccalc-minus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="black" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <input type='text' value='1'>
+                    <button class='ccalc-plus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M12 4.5V20.5" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="cart__price">
+                    <img src="img/Ton.svg" alt="">
+                    <span>2,5 TON</span>
+                </div>
+            </div>
+            <div class="cart-modal__grid">
+                <div class="cart-modal__col">
+                    <div class="cart-content">
+                        <div class="cart-content__title">
+                            Доставка
+                        </div>
+                        <div class="address-field">
+                            <div class="fg fg-dynamic">
+                                <input type="text">
+                                <label>Адрес доставки*</label>
+                                <div class="fg__error">
+                                    <span class="text12">На этот адрес невозможно осуществить доставку, попробуйте другой</span>
+                                </div>
+                            </div>
+                            <div class="address-field__dropdown">
+                                <div data-value="Москва Ул. Адмирала Гвантийского 32, 1" class="address-field__variant">
+                                    <span>Москва Ул. Адмирала Гвантийского 32, 1</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                                <div data-value="Москва, Ул Гвантура 39/3" class="address-field__variant">
+                                    <span>Москва, Ул Гвантура 39/3</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loader">
+                            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                            </svg>
+                        </div>
+
+                        <div class="delivery">
+                            <div class="delivery__title text20">
+                                Выберите способ доставки
+                            </div>
+                            <div class="delivery__items">
+                                <div class="delivery-item">
+                                    <input checked type="radio" data-value="_courier" name="deliveryType">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                Курьер СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Курьер согласует время доставки и привезет до двери товар
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                                <div class="delivery-item">
+                                    <input type="radio" data-value="_self" name="deliveryType">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                ПВЗ СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Товар приедет в ближайший доступный день в пункт выдачи заказов рядом с вами
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user">
+                            <div class="user__title text20">
+                                Адрес доставки
+                            </div>
+                            <div class="user__nav _delivery-type-fields _self">
+                                <button class="user__btn m-btn m-btn-violet">
+                                    <span>Выбрать пункт самовывоза</span>
+                                </button>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Контактные данные
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _error _col2">
+                                        <input type="text">
+                                        <label>ФИО*</label>
+                                        <div class="fg__error">
+                                            <span class="text12">
+                                            Не заполнено обязательное поле
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Email*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телефон</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телеграм</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Адрес доставки
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Город*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Улица*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Квартира</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Дом*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Строение</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Подъезд</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _full">
+                                        <textarea></textarea>
+                                        <label>Комментарий к заказу</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-modal__col">
+                    <div class="cart-sidebar">
+                        <div class="cart-sidebar__top">
+                            <div class="order-list">
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Flyki S1 (2шт)
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>5,2 TON</span>
+                                    </div>
+                                </div>
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Доставка
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar__bottom">
+                            <div class="order-sum">
+                                <div class="order-sum__title">
+                                    Итого
+                                </div>
+                                <div class="cart__price">
+                                    <img src="img/Ton.svg" alt="">
+                                    <span>5,32 TON</span>
+                                </div>
+                            </div>
+                            <div class="wallet">
+
+                                <div class="wallet__num">
+                                    Подключить кошелек
+                                </div>
+
+
+                            </div>
+                            <button disabled class="cart-sidebar__btn m-btn m-btn-black">
+                                <span>Оформить</span>
+                            </button>
+
+                            <div class="cart-sidebar__error">
+                                Минимальная сумма для заказа - 3 шт
+                            </div>
+
+                            <div class="cart-sidebar__check">
+                                <div class="m-check">
+                                    <input type="checkbox">
+                                    <label><span>Согласие на обработку персональных данных</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cart-modal _step1" id="cartModal2">
+        <div class="cart-modal__bg modal-bg _close-cart"></div>
+        <button class="cart-modal__close _close-cart">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4226 10.2441C11.0972 9.91864 10.5695 9.91864 10.2441 10.2441C9.91864 10.5695 9.91864 11.0972 10.2441 11.4226L18.8215 20L10.2441 28.5774C9.91864 28.9028 9.91864 29.4305 10.2441 29.7559C10.5695 30.0814 11.0972 30.0814 11.4226 29.7559L20 21.1785L28.5774 29.7559C28.9028 30.0814 29.4305 30.0814 29.7559 29.7559C30.0814 29.4305 30.0814 28.9028 29.7559 28.5774L21.1785 20L29.7559 11.4226C30.0814 11.0972 30.0814 10.5695 29.7559 10.2441C29.4305 9.91864 28.9028 9.91864 28.5774 10.2441L20 18.8215L11.4226 10.2441Z" fill="#DEDEDE" />
+            </svg>
+        </button>
+        <div class="cart-modal__dialog">
+            <div class="cart-header">
+                <div class="cart-header__product">
+                    <div class="cart-header__product-img">
+                        <img src="img/order-img.png" alt="">
+                    </div>
+                    <div class="cart-header__product-title">
+                        Flyki S1
+                    </div>
+                </div>
+                <div class='cartcalc'>
+                    <button class='ccalc-minus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="black" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <input type='text' value='1'>
+                    <button class='ccalc-plus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M12 4.5V20.5" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="cart__price">
+                    <img src="img/Ton.svg" alt="">
+                    <span>2,5 TON</span>
+                </div>
+            </div>
+            <div class="cart-modal__grid">
+                <div class="cart-modal__col">
+                    <div class="cart-content">
+                        <div class="cart-content__title">
+                            Доставка
+                        </div>
+                        <div class="address-field">
+                            <div class="fg fg-dynamic">
+                                <input type="text">
+                                <label>Адрес доставки*</label>
+                                <div class="fg__error">
+                                    <span class="text12">На этот адрес невозможно осуществить доставку, попробуйте другой</span>
+                                </div>
+                            </div>
+                            <div class="address-field__dropdown">
+                                <div data-value="Москва Ул. Адмирала Гвантийского 32, 1" class="address-field__variant">
+                                    <span>Москва Ул. Адмирала Гвантийского 32, 1</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                                <div data-value="Москва, Ул Гвантура 39/3" class="address-field__variant">
+                                    <span>Москва, Ул Гвантура 39/3</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loader">
+                            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                            </svg>
+                        </div>
+
+                        <div class="delivery">
+                            <div class="delivery__title text20">
+                                Выберите способ доставки
+                            </div>
+                            <div class="delivery__items">
+                                <div class="delivery-item">
+                                    <input checked type="radio" data-value="_courier" name="deliveryType2">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                Курьер СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Курьер согласует время доставки и привезет до двери товар
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                                <div class="delivery-item">
+                                    <input type="radio" data-value="_self" name="deliveryType2">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                ПВЗ СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Товар приедет в ближайший доступный день в пункт выдачи заказов рядом с вами
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user">
+                            <div class="user__title text20">
+                                Адрес доставки
+                            </div>
+                            <div class="user__nav _delivery-type-fields _self">
+                                <button class="user__btn m-btn m-btn-violet">
+                                    <span>Выбрать пункт самовывоза</span>
+                                </button>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Контактные данные
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _error _col2">
+                                        <input type="text">
+                                        <label>ФИО*</label>
+                                        <div class="fg__error">
+                                            <span class="text12">
+                                            Не заполнено обязательное поле
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Email*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телефон</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телеграм</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Адрес доставки
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Город*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Улица*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Квартира</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Дом*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Строение</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Подъезд</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _full">
+                                        <textarea></textarea>
+                                        <label>Комментарий к заказу</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-modal__col">
+                    <div class="cart-sidebar">
+                        <div class="cart-sidebar__top">
+                            <div class="order-list">
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Flyki S1 (2шт)
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>5,2 TON</span>
+                                    </div>
+                                </div>
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Доставка
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar__bottom">
+                            <div class="order-sum">
+                                <div class="order-sum__title">
+                                    Итого
+                                </div>
+                                <div class="cart__price">
+                                    <img src="img/Ton.svg" alt="">
+                                    <span>5,32 TON</span>
+                                </div>
+                            </div>
+                            <div class="wallet">
+
+
+                                <img class="wallet__icon" src="img/Ton2.svg" alt="">
+                                <div class="wallet__num">
+                                    0x17Da...2f55
+                                </div>
+                                <img class="wallet__arrow" src="img/arrow3.svg" alt="">
+
+                            </div>
+                            <button disabled class="cart-sidebar__btn m-btn m-btn-black">
+                                <span>Оформить</span>
+                            </button>
+
+                            <div class="cart-sidebar__check">
+                                <div class="m-check">
+                                    <input type="checkbox">
+                                    <label><span>Согласие на обработку персональных данных</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cart-modal _step2" id="cartModal3">
+        <div class="cart-modal__bg modal-bg _close-cart"></div>
+        <button class="cart-modal__close _close-cart">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4226 10.2441C11.0972 9.91864 10.5695 9.91864 10.2441 10.2441C9.91864 10.5695 9.91864 11.0972 10.2441 11.4226L18.8215 20L10.2441 28.5774C9.91864 28.9028 9.91864 29.4305 10.2441 29.7559C10.5695 30.0814 11.0972 30.0814 11.4226 29.7559L20 21.1785L28.5774 29.7559C28.9028 30.0814 29.4305 30.0814 29.7559 29.7559C30.0814 29.4305 30.0814 28.9028 29.7559 28.5774L21.1785 20L29.7559 11.4226C30.0814 11.0972 30.0814 10.5695 29.7559 10.2441C29.4305 9.91864 28.9028 9.91864 28.5774 10.2441L20 18.8215L11.4226 10.2441Z" fill="#DEDEDE" />
+            </svg>
+        </button>
+        <div class="cart-modal__dialog">
+            <div class="cart-header">
+                <div class="cart-header__product">
+                    <div class="cart-header__product-img">
+                        <img src="img/order-img.png" alt="">
+                    </div>
+                    <div class="cart-header__product-title">
+                        Flyki S1
+                    </div>
+                </div>
+                <div class='cartcalc'>
+                    <button class='ccalc-minus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="black" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <input type='text' value='1'>
+                    <button class='ccalc-plus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M12 4.5V20.5" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="cart__price">
+                    <img src="img/Ton.svg" alt="">
+                    <span>2,5 TON</span>
+                </div>
+            </div>
+            <div class="cart-modal__grid">
+                <div class="cart-modal__col">
+                    <div class="cart-content">
+                        <div class="cart-content__title">
+                            Доставка
+                        </div>
+                        <div class="address-field">
+                            <div class="fg fg-dynamic">
+                                <input type="text">
+                                <label>Адрес доставки*</label>
+                                <div class="fg__error">
+                                    <span class="text12">На этот адрес невозможно осуществить доставку, попробуйте другой</span>
+                                </div>
+                            </div>
+                            <div class="address-field__dropdown">
+                                <div data-value="Москва Ул. Адмирала Гвантийского 32, 1" class="address-field__variant">
+                                    <span>Москва Ул. Адмирала Гвантийского 32, 1</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                                <div data-value="Москва, Ул Гвантура 39/3" class="address-field__variant">
+                                    <span>Москва, Ул Гвантура 39/3</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loader">
+                            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                            </svg>
+                        </div>
+
+                        <div class="delivery">
+                            <div class="delivery__title text20">
+                                Выберите способ доставки
+                            </div>
+                            <div class="delivery__items">
+                                <div class="delivery-item">
+                                    <input checked type="radio" data-value="_courier" name="deliveryType3">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                Курьер СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Курьер согласует время доставки и привезет до двери товар
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                                <div class="delivery-item">
+                                    <input type="radio" data-value="_self" name="deliveryType3">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                ПВЗ СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Товар приедет в ближайший доступный день в пункт выдачи заказов рядом с вами
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user">
+                            <div class="user__title text20">
+                                Адрес доставки
+                            </div>
+                            <div class="user__nav _delivery-type-fields _self">
+                                <button class="user__btn m-btn m-btn-violet">
+                                    <span>Выбрать пункт самовывоза</span>
+                                </button>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Контактные данные
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _error _col2">
+                                        <input type="text">
+                                        <label>ФИО*</label>
+                                        <div class="fg__error">
+                                            <span class="text12">
+                                            Не заполнено обязательное поле
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Email*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телефон</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телеграм</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Адрес доставки
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Город*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Улица*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Квартира</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Дом*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Строение</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Подъезд</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _full">
+                                        <textarea></textarea>
+                                        <label>Комментарий к заказу</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-modal__col">
+                    <div class="cart-sidebar">
+                        <div class="cart-sidebar__top">
+                            <div class="order-list">
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Flyki S1 (2шт)
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>5,2 TON</span>
+                                    </div>
+                                </div>
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Доставка
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar__bottom">
+                            <div class="order-sum">
+                                <div class="order-sum__title">
+                                    Итого
+                                </div>
+                                <div class="cart__price">
+                                    <img src="img/Ton.svg" alt="">
+                                    <span>5,32 TON</span>
+                                </div>
+                            </div>
+                            <div class="wallet">
+
+
+                                <img class="wallet__icon" src="img/Ton2.svg" alt="">
+                                <div class="wallet__num">
+                                    0x17Da...2f55
+                                </div>
+                                <img class="wallet__arrow" src="img/arrow3.svg" alt="">
+
+                            </div>
+                            <button disabled class="cart-sidebar__btn m-btn m-btn-black">
+                                <span>Оформить</span>
+                            </button>
+
+                            <div class="cart-sidebar__check">
+                                <div class="m-check">
+                                    <input type="checkbox">
+                                    <label><span>Согласие на обработку персональных данных</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cart-modal _step3" id="cartModal4">
+        <div class="cart-modal__bg modal-bg _close-cart"></div>
+        <button class="cart-modal__close _close-cart">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4226 10.2441C11.0972 9.91864 10.5695 9.91864 10.2441 10.2441C9.91864 10.5695 9.91864 11.0972 10.2441 11.4226L18.8215 20L10.2441 28.5774C9.91864 28.9028 9.91864 29.4305 10.2441 29.7559C10.5695 30.0814 11.0972 30.0814 11.4226 29.7559L20 21.1785L28.5774 29.7559C28.9028 30.0814 29.4305 30.0814 29.7559 29.7559C30.0814 29.4305 30.0814 28.9028 29.7559 28.5774L21.1785 20L29.7559 11.4226C30.0814 11.0972 30.0814 10.5695 29.7559 10.2441C29.4305 9.91864 28.9028 9.91864 28.5774 10.2441L20 18.8215L11.4226 10.2441Z" fill="#DEDEDE" />
+            </svg>
+        </button>
+        <div class="cart-modal__dialog">
+            <div class="cart-header">
+                <div class="cart-header__product">
+                    <div class="cart-header__product-img">
+                        <img src="img/order-img.png" alt="">
+                    </div>
+                    <div class="cart-header__product-title">
+                        Flyki S1
+                    </div>
+                </div>
+                <div class='cartcalc'>
+                    <button class='ccalc-minus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="black" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <input type='text' value='1'>
+                    <button class='ccalc-plus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M12 4.5V20.5" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="cart__price">
+                    <img src="img/Ton.svg" alt="">
+                    <span>2,5 TON</span>
+                </div>
+            </div>
+            <div class="cart-modal__grid">
+                <div class="cart-modal__col">
+                    <div class="cart-content">
+                        <div class="cart-content__title">
+                            Доставка
+                        </div>
+                        <div class="address-field">
+                            <div class="fg fg-dynamic">
+                                <input type="text">
+                                <label>Адрес доставки*</label>
+                                <div class="fg__error">
+                                    <span class="text12">На этот адрес невозможно осуществить доставку, попробуйте другой</span>
+                                </div>
+                            </div>
+                            <div class="address-field__dropdown">
+                                <div data-value="Москва Ул. Адмирала Гвантийского 32, 1" class="address-field__variant">
+                                    <span>Москва Ул. Адмирала Гвантийского 32, 1</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                                <div data-value="Москва, Ул Гвантура 39/3" class="address-field__variant">
+                                    <span>Москва, Ул Гвантура 39/3</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loader">
+                            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                            </svg>
+                        </div>
+
+                        <div class="delivery">
+                            <div class="delivery__title text20">
+                                Выберите способ доставки
+                            </div>
+                            <div class="delivery__items">
+                                <div class="delivery-item">
+                                    <input checked type="radio" data-value="_courier" name="deliveryType4">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                Курьер СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Курьер согласует время доставки и привезет до двери товар
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                                <div class="delivery-item">
+                                    <input type="radio" data-value="_self" name="deliveryType4">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                ПВЗ СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Товар приедет в ближайший доступный день в пункт выдачи заказов рядом с вами
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user">
+                            <div class="user__title text20">
+                                Адрес доставки
+                            </div>
+                            <div class="user__nav _delivery-type-fields _self">
+                                <button class="user__btn m-btn m-btn-violet">
+                                    <span>Выбрать пункт самовывоза</span>
+                                </button>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Контактные данные
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _error _col2">
+                                        <input type="text">
+                                        <label>ФИО*</label>
+                                        <div class="fg__error">
+                                            <span class="text12">
+                                            Не заполнено обязательное поле
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Email*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телефон</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телеграм</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Адрес доставки
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Город*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Улица*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Квартира</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Дом*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Строение</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Подъезд</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _full">
+                                        <textarea></textarea>
+                                        <label>Комментарий к заказу</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-modal__col">
+                    <div class="cart-sidebar">
+                        <div class="cart-sidebar__top">
+                            <div class="order-list">
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Flyki S1 (2шт)
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>5,2 TON</span>
+                                    </div>
+                                </div>
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Доставка
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar__bottom">
+                            <div class="order-sum">
+                                <div class="order-sum__title">
+                                    Итого
+                                </div>
+                                <div class="cart__price">
+                                    <img src="img/Ton.svg" alt="">
+                                    <span>5,32 TON</span>
+                                </div>
+                            </div>
+                            <div class="wallet">
+
+
+                                <img class="wallet__icon" src="img/Ton2.svg" alt="">
+                                <div class="wallet__num">
+                                    0x17Da...2f55
+                                </div>
+                                <img class="wallet__arrow" src="img/arrow3.svg" alt="">
+
+                            </div>
+                            <button disabled class="cart-sidebar__btn m-btn m-btn-black">
+                                <span>Оформить</span>
+                            </button>
+
+                            <div class="cart-sidebar__check">
+                                <div class="m-check">
+                                    <input type="checkbox">
+                                    <label><span>Согласие на обработку персональных данных</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cart-modal _step4" id="cartModal5">
+        <div class="cart-modal__bg modal-bg _close-cart"></div>
+        <button class="cart-modal__close _close-cart">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4226 10.2441C11.0972 9.91864 10.5695 9.91864 10.2441 10.2441C9.91864 10.5695 9.91864 11.0972 10.2441 11.4226L18.8215 20L10.2441 28.5774C9.91864 28.9028 9.91864 29.4305 10.2441 29.7559C10.5695 30.0814 11.0972 30.0814 11.4226 29.7559L20 21.1785L28.5774 29.7559C28.9028 30.0814 29.4305 30.0814 29.7559 29.7559C30.0814 29.4305 30.0814 28.9028 29.7559 28.5774L21.1785 20L29.7559 11.4226C30.0814 11.0972 30.0814 10.5695 29.7559 10.2441C29.4305 9.91864 28.9028 9.91864 28.5774 10.2441L20 18.8215L11.4226 10.2441Z" fill="#DEDEDE" />
+            </svg>
+        </button>
+        <div class="cart-modal__dialog">
+            <div class="cart-header">
+                <div class="cart-header__product">
+                    <div class="cart-header__product-img">
+                        <img src="img/order-img.png" alt="">
+                    </div>
+                    <div class="cart-header__product-title">
+                        Flyki S1
+                    </div>
+                </div>
+                <div class='cartcalc'>
+                    <button class='ccalc-minus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="black" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <input type='text' value='1'>
+                    <button class='ccalc-plus'>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12.5H4" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M12 4.5V20.5" stroke="#2B3138" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="cart__price">
+                    <img src="img/Ton.svg" alt="">
+                    <span>2,5 TON</span>
+                </div>
+            </div>
+            <div class="cart-modal__grid">
+                <div class="cart-modal__col">
+                    <div class="cart-content">
+                        <div class="cart-content__title">
+                            Доставка
+                        </div>
+                        <div class="address-field">
+                            <div class="fg fg-dynamic">
+                                <input type="text">
+                                <label>Адрес доставки*</label>
+                                <div class="fg__error">
+                                    <span class="text12">На этот адрес невозможно осуществить доставку, попробуйте другой</span>
+                                </div>
+                            </div>
+                            <div class="address-field__dropdown">
+                                <div data-value="Москва Ул. Адмирала Гвантийского 32, 1" class="address-field__variant">
+                                    <span>Москва Ул. Адмирала Гвантийского 32, 1</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                                <div data-value="Москва, Ул Гвантура 39/3" class="address-field__variant">
+                                    <span>Москва, Ул Гвантура 39/3</span>
+                                </div>
+                                <div data-value="Москва Адмиральский корпус 1 36" class="address-field__variant">
+                                    <span>Москва Адмиральский корпус 1 36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loader">
+                            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(0 25 25) translate(11 0)" style="animation-delay: -733ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(30 25 25) translate(11 0)" style="animation-delay: -667ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(60 25 25) translate(11 0)" style="animation-delay: -600ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(90 25 25) translate(11 0)" style="animation-delay: -533ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(120 25 25) translate(11 0)" style="animation-delay: -467ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(150 25 25) translate(11 0)" style="animation-delay: -400ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(180 25 25) translate(11 0)" style="animation-delay: -333ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(210 25 25) translate(11 0)" style="animation-delay: -267ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(240 25 25) translate(11 0)" style="animation-delay: -200ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(270 25 25) translate(11 0)" style="animation-delay: -133ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(300 25 25) translate(11 0)" style="animation-delay: -67ms;"></line>
+                                <line x1="25" y1="25" x2="37" y2="25" transform="rotate(330 25 25) translate(11 0)" style="animation-delay: 0ms;"></line>
+                            </svg>
+                        </div>
+
+                        <div class="delivery">
+                            <div class="delivery__title text20">
+                                Выберите способ доставки
+                            </div>
+                            <div class="delivery__items">
+                                <div class="delivery-item">
+                                    <input checked type="radio" data-value="_courier" name="deliveryType4">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                Курьер СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Курьер согласует время доставки и привезет до двери товар
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                                <div class="delivery-item">
+                                    <input type="radio" data-value="_self" name="deliveryType4">
+                                    <div class="delivery-item__radio"></div>
+                                    <div class="delivery-item__info">
+                                        <div class="delivery-item__top">
+                                            <div class="delivery-item__title">
+                                                ПВЗ СДЭК
+                                            </div>
+                                            <div class="delivery-item__duration">
+                                                4 дня
+                                            </div>
+                                        </div>
+                                        <div class="delivery-item__desc">
+                                            Товар приедет в ближайший доступный день в пункт выдачи заказов рядом с вами
+                                        </div>
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user">
+                            <div class="user__title text20">
+                                Адрес доставки
+                            </div>
+                            <div class="user__nav _delivery-type-fields _self">
+                                <button class="user__btn m-btn m-btn-violet">
+                                    <span>Выбрать пункт самовывоза</span>
+                                </button>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Контактные данные
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _error _col2">
+                                        <input type="text">
+                                        <label>ФИО*</label>
+                                        <div class="fg__error">
+                                            <span class="text12">
+                                            Не заполнено обязательное поле
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Email*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телефон</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Телеграм</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-group">
+                                <div class="user-group__title">
+                                    Адрес доставки
+                                </div>
+                                <div class="user-group__fields">
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Город*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _col2">
+                                        <input type="text">
+                                        <label>Улица*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Квартира</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Дом*</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Строение</label>
+                                    </div>
+                                    <div class="fg fg-dynamic">
+                                        <input type="text">
+                                        <label>Подъезд</label>
+                                    </div>
+                                    <div class="fg fg-dynamic _full">
+                                        <textarea></textarea>
+                                        <label>Комментарий к заказу</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-modal__col">
+                    <div class="cart-sidebar">
+                        <div class="cart-sidebar__top">
+                            <div class="order-list">
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Flyki S1 (2шт)
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>5,2 TON</span>
+                                    </div>
+                                </div>
+                                <div class="order-list__item">
+                                    <div class="order-list__item-title">
+                                        Доставка
+                                    </div>
+                                    <div class="cart__price">
+                                        <img src="img/Ton.svg" alt="">
+                                        <span>0,12 TON</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar__bottom">
+                            <div class="order-sum">
+                                <div class="order-sum__title">
+                                    Итого
+                                </div>
+                                <div class="cart__price">
+                                    <img src="img/Ton.svg" alt="">
+                                    <span>5,32 TON</span>
+                                </div>
+                            </div>
+                            <div class="wallet">
+
+
+                                <img class="wallet__icon" src="img/Ton2.svg" alt="">
+                                <div class="wallet__num">
+                                    0x17Da...2f55
+                                </div>
+                                <img class="wallet__arrow" src="img/arrow3.svg" alt="">
+
+                            </div>
+                            <button class="cart-sidebar__btn m-btn m-btn-black">
+                                <span>Оформить</span>
+                            </button>
+
+                            <div class="cart-sidebar__check">
+                                <div class="m-check">
+                                    <input type="checkbox">
+                                    <label><span>Согласие на обработку персональных данных</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--  -->
+    <script src="js/libs.min.js"></script>
+    <script src="js/main.min.js"></script>
+
+</body>
+
+</html>
